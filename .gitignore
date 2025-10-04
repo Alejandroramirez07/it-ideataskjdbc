@@ -1,0 +1,111 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+# ----------------------------------------------------------------------
+# Java / IDE Specific Ignored Files (IntelliJ IDEA)
+# ----------------------------------------------------------------------
+
+# IntelliJ IDEA workspace files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Compilation artifacts
+out/
+target/        # Maven build directory
+build/         # Gradle build directory (often, though 'out' is common too)
+
+# Local configuration files
+*.local
+
+# External libraries and caches
+.classpath
+.project
+.settings/
+.idea_modules/
+
+# ----------------------------------------------------------------------
+# General Java-related Ignored Files
+# ----------------------------------------------------------------------
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+log/
+
+# Package Files (*.jar, *.war, *.ear)
+*.jar
+*.war
+*.ear
+
+# Temporary files created by the JVM
+hs_err_pid*
+
+# ----------------------------------------------------------------------
+# SUGGESTIONS for Other Tools and Common Practices
+# ----------------------------------------------------------------------
+
+# 1. Eclipse (If you or teammates use it)
+# .metadata
+# bin/
+
+# 2. NetBeans (If you or teammates use it)
+# nbproject/private/
+# build/
+# dist/
+# nbbuild/
+# *.orig
+
+# 3. Project Specific Configuration/Secrets
+# If you have a file that holds database passwords or API keys, it MUST be ignored.
+# For example:
+# src/main/resources/application-dev.properties
+# src/main/resources/secrets.yml
+
+# 4. Operating System Files (Helpful across all OSes)
+# Thumbnails
+.DS_Store
+Thumbs.db
+
+# Windows temporary/hidden files
+Desktop.ini
+
+# Maven/Gradle Caches (Only if you are running into issues, generally leave them out)
+# **/.gradle/
+# **/.m2/
+
+.classpath
+.project
+.settings/
+.idea_modules/
+
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
