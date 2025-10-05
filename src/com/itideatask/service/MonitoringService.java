@@ -1,4 +1,4 @@
-package com.it.ideadtask.service;
+package com.itideadtask.service;
 
 public class MonitoringService {
 }

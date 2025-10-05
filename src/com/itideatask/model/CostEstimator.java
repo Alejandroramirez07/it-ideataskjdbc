@@ -1,4 +1,4 @@
-package com.it.ideadtask.model;
+package com.itideatask.model;
 
 public class CostEstimator {
 }

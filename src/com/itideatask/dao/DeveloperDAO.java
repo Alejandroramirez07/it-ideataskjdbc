@@ -1,4 +1,4 @@
-package com.it.ideadtask.dao;
+package com.itideatask.dao;
 
 public class DeveloperDAO {
 }
