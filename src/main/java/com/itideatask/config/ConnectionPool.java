@@ -1,3 +1,5 @@
+package com.itideatask.config;
+
 public class ConnectionPool {
     private static final String URL = "jdbc:mysql://localhost:3306/MySQL94";
     private static final String USER = "root";

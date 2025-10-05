@@ -1,4 +1,4 @@
-package com.itideadtask.service;
+package com.itideatask.service;
 
 public class ManagerService {
 }

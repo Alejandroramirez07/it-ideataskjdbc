@@ -8,6 +8,7 @@ public class Main {
         final Logger LOGGER = LogManager.getLogger(Main.class);
         ClientService clientService = new ClientService(),
         Client client = clientService.getClient(1);
+        LOGGER.info(client);
 
 
     }

@@ -1,4 +1,4 @@
-package com.itideadtask.service;
+package com.itideatask.service;
 
 public class ClientService {
     private final ClientDAO clientDAO = new ClientDAO();
