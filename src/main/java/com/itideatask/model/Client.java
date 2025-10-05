@@ -1,32 +1,52 @@
 package com.itideatask.model;
 
 public class Client {
-    private int id;
-    private String name;
+    private String username;
+    private String email;
+    private String password;
+    private int projectCode;
 
-    public Client(int id, String name) {
-        this.id=id;
-        this.name=name;
+    public Client(String username, String email, String password, int projectCode) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.projectCode = projectCode;
     }
 
-    public int getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUsername(String username){
+        this.username=username;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setEmail(String email) {
+        this.email=email;
     }
 
-    @override
+    public int getProjectCode() {
+        return projectCode;
+    }
+
+    public void setProjectCode(int projectCode) {
+        this.projectCode = projectCode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
     public String toString() {
-        return " Id:  " + this.id  + ", Neme : " + this.name;
+        return " username:  " + this.username  + ", email : " + this.email + ", project code: " + this.projectCode + " password is secret ";
     }
 }

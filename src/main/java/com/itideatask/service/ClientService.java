@@ -1,8 +1,11 @@
 package com.itideatask.service;
 
+import com.itideatask.model.Client;
+import com.itideatask.dao.ClientDAO;
+
 public class ClientService {
     private final ClientDAO clientDAO = new ClientDAO();
-    public CLient getClient(int id){
-        return ClientDAO.findById(id);
+    public Client getClient(String email){
+        return clientDAO.findById(email);
     }
 }
