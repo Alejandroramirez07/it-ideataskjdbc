@@ -7,7 +7,7 @@ public class Manager {
     int project_code;
     int employee_code;
 
-    public Manager(String username, String email, String password, int project_code, int employee_code, int manager_employee_code){
+    public Manager(String username, String email, String password, int project_code, int employee_code){
         this.username=username;
         this.email=email;
         this.password=password;

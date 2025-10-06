@@ -1,4 +1,27 @@
 package com.itideatask.dao;
 
+import com.itideatask.config.ConnectionPool;
+import com.itideatask.model.Cloud;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class CloudDAO {
+    public Cloud findById(int gcp_project_code) {
+        String sql = " SELECT * FROM general_clouds WHERE gcp_project_code=?";
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            ResultSet resultSet =preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new Cloud (
+                        resultSet.getInt("gcp_project_code"),
+                        resultSet.getInt("aws_project_code"),
+                        resultSet.getInt("azure_project_code"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

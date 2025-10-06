@@ -28,4 +28,22 @@ public class ProjectDAO {
         }
         return projects;
     }
+
+    public Project findById(int project_code) {
+        String sql = " SELECT * FROM projects WHERE project_code=?";
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            ResultSet resultSet =preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new Project (
+                        resultSet.getInt("project_code"),
+                        resultSet.getString("name")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

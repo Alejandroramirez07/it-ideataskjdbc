@@ -4,17 +4,17 @@ public class Developer {
     String username;
     String email;
     String password;
-    int project_code;
-    int employee_code;
-    int manager_employee_code;
+    int projectCode;
+    int employeeCode;
+    int manager_employeeCode;
 
-    public Developer(String username, String email, String password, int project_code, int employee_code, int manager_employee_code){
+    public Developer(String username, String email, String password, int projectCode, int employeeCode, int manager_employeeCode){
         this.username=username;
         this.email=email;
         this.password=password;
-        this.project_code=project_code;
-        this.employee_code=employee_code;
-        this.manager_employee_code=manager_employee_code;
+        this.projectCode=projectCode;
+        this.employeeCode=employeeCode;
+        this.manager_employeeCode=manager_employeeCode;
     }
 
     public String getUsername() {
@@ -42,27 +42,27 @@ public class Developer {
     }
 
     public int getProject_code() {
-        return project_code;
+        return projectCode;
     }
 
-    public void setProject_code(int project_code) {
-        this.project_code = project_code;
+    public void setProject_code(int projectCode) {
+        this.projectCode = projectCode;
     }
 
     public int getEmployee_code() {
-        return employee_code;
+        return employeeCode;
     }
 
-    public void setEmployee_code(int employee_code) {
-        this.employee_code = employee_code;
+    public void setEmployee_code(int employeeCode) {
+        this.employeeCode = employeeCode;
     }
 
-    public int getManager_employee_code() {
-        return manager_employee_code;
+    public int getManager_employeeCode() {
+        return manager_employeeCode;
     }
 
-    public void setManager_employee_code(int manager_employee_code) {
-        this.manager_employee_code = manager_employee_code;
+    public void setManager_employeeCode(int manager_employeeCode) {
+        this.manager_employeeCode = manager_employeeCode;
     }
 }
 

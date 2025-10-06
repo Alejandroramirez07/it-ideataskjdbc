@@ -1,27 +1,27 @@
 package com.itideatask.dao;
 
 import com.itideatask.config.ConnectionPool;
-import com.itideatask.model.Developer;
+import com.itideatask.model.IncomeProject;
+import com.itideatask.model.ResourcesProject;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class DeveloperDAO {
-    public Developer findById(int employeeCode) {
-        String sql = " SELECT * FROM developers WHERE employee_code=?";
+public class ResourcesProjectDAO {
+    public ResourcesProject findById(int project_code) {
+        String sql = " SELECT * FROM resources_invested WHERE project_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new Developer (
-                        resultSet.getString("username"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"),
+                return new ResourcesProject(
+                        resultSet.getInt("total_spent_usd"),
+                        resultSet.getString("comments_on_spendings"),
                         resultSet.getInt("project_code"),
-                        resultSet.getInt("employee_code"),
-                        resultSet.getInt("manager_employee_code")
-                        );
+                        resultSet.getInt("report_number")
+                );
             }
         } catch (Exception e) {
             e.printStackTrace();
