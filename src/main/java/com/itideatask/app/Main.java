@@ -168,8 +168,6 @@ public class Main {
                     LOGGER.info("Invalid option. Try again.");
             }
 
-
-
         }
     }
 }
