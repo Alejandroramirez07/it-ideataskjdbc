@@ -1,4 +1,4 @@
 package com.itideatask.dao;
 
-public class PaymentDAO {
+public class ResourcesDAO {
 }
