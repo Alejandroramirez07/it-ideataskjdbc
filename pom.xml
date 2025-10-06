@@ -69,7 +69,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.itideatask.Main</mainClass>
+                            <mainClass>com.itideatask.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
