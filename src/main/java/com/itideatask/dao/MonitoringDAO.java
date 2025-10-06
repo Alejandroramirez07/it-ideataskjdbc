@@ -12,6 +12,7 @@ public class MonitoringDAO {
         String sql = " SELECT * FROM splunk_monitoring WHERE project_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, project_code);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Monitoring (

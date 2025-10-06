@@ -12,6 +12,7 @@ public class ManagerDAO {
         String sql = " SELECT * FROM project_managers WHERE employee_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, employeeCode);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Manager (

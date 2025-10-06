@@ -33,6 +33,7 @@ public class ProjectDAO {
         String sql = " SELECT * FROM projects WHERE project_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, project_code);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Project (

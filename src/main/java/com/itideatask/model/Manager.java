@@ -54,4 +54,9 @@ public class Manager {
     public void setEmployee_code(int employee_code) {
         this.employee_code = employee_code;
     }
+
+    @Override
+    public String toString() {
+        return " username:  " + this.username  + ", email : " + this.email + ", project code: " + this.project_code + " password is secret ";
+    }
 }

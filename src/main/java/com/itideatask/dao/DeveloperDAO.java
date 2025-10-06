@@ -12,6 +12,8 @@ public class DeveloperDAO {
         String sql = " SELECT * FROM developers WHERE employee_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, employeeCode);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Developer (

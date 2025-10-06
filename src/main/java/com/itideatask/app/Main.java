@@ -1,10 +1,7 @@
 package com.itideatask.app;
 
-import com.itideatask.model.Client;
-import com.itideatask.model.Project;
-import com.itideatask.service.ClientService;
-import com.itideatask.service.ProjectService;
-import com.itideatask.dao.ProjectDAO;
+import com.itideatask.model.*;
+import com.itideatask.service.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +25,7 @@ public class Main {
             LOGGER.info("3. Update client password");
             LOGGER.info("4. Delete client");
             LOGGER.info("5. Exit");
+            LOGGER.info("6. Additional options");
             LOGGER.info("Choose option: ");
 
             int choice = scanner.nextInt();
@@ -84,9 +82,94 @@ public class Main {
                     LOGGER.info("Exiting program.");
                     return;
 
+                case 6:
+                    while (true) {
+                        LOGGER.info("\n=== Additional info ===");
+                        LOGGER.info("1. Consult Developer by id");
+                        LOGGER.info("2. Consult Manager by id");
+                        LOGGER.info("3. Consult monitoring");
+                        LOGGER.info("3. Consult project");
+                        LOGGER.info("5.. Exit");
+                        LOGGER.info("Choose option: ");
+
+                        int additionalchoice = scanner.nextInt();
+                        scanner.nextLine();
+
+                        switch (additionalchoice) {
+                            case 1:
+                                LOGGER.info("Insert developer employee_code:");
+                                int insert_employee_code = scanner.nextInt();
+
+                                DeveloperService developerService = new DeveloperService();
+                                Developer developer = developerService.getDeveloper(insert_employee_code);
+
+                                if (developer != null) {
+                                    LOGGER.info("Developer found -> " + developer.toString());
+                                } else {
+                                    LOGGER.info("No developer found with employee_code = " + insert_employee_code);
+                                }
+                                break;
+
+                            case 2:
+                                LOGGER.info("Insert manager employee_code:");
+                                insert_employee_code = scanner.nextInt();
+
+                                ManagerService managerService = new ManagerService();
+
+                                Manager manager = managerService.getManager(insert_employee_code);
+                                if (manager != null) {
+                                    LOGGER.info("Manager found -> " + manager.toString());
+                                } else {
+                                    LOGGER.info("No manager found with employee_code = " + insert_employee_code);
+                                }
+                                break;
+
+                            case 3:
+
+                                LOGGER.info("Insert monitoring code");
+                                int insert_monitor_code = scanner.nextInt();
+
+                                MonitoringService monitoringService = new MonitoringService();
+
+                                Monitoring monitoring = monitoringService.getMonitor(insert_monitor_code);
+
+                                if (monitoring != null) {
+                                    LOGGER.info("monitoring found -> " + monitoring.toString());
+                                } else {
+                                    LOGGER.info("No monitoring found with code = " + insert_monitor_code);
+                                }
+                                break;
+
+                            case 4:
+                                LOGGER.info("Insert project code");
+                                int insert_project_code = scanner.nextInt();
+
+                                ProjectService projectService1 = new ProjectService();
+
+                                Project project= projectService1.getProject(insert_project_code);
+
+                                if (project != null) {
+                                    LOGGER.info("Project found -> " + project.toString());
+                                } else {
+                                    LOGGER.info("No project found with employee_code = " + insert_project_code);
+                                }
+                                break;
+
+                            case 5:
+                                LOGGER.info("Exiting program.");
+                                return;
+
+                            default:
+                                LOGGER.info("Invalid option. Try again.");
+                        }
+                    }
+
                 default:
                     LOGGER.info("Invalid option. Try again.");
             }
+
+
+
         }
     }
 }

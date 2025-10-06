@@ -12,6 +12,7 @@ public class CloudDAO {
         String sql = " SELECT * FROM general_clouds WHERE gcp_project_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, gcp_project_code);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Cloud (

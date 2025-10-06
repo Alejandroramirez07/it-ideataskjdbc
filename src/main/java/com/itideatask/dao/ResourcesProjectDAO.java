@@ -14,6 +14,7 @@ public class ResourcesProjectDAO {
         String sql = " SELECT * FROM resources_invested WHERE project_code=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, project_code);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new ResourcesProject(

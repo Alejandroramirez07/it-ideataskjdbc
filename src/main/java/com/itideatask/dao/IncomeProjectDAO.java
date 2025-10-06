@@ -12,6 +12,7 @@ public class IncomeProjectDAO {
         String sql = " SELECT * FROM income_projects WHERE report_number=?";
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, report_number);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new IncomeProject (
