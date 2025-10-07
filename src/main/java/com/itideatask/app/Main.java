@@ -5,6 +5,7 @@ import com.itideatask.service.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -18,6 +19,23 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        SaxService saxService= new SaxService();
+
+        String javaProjectsPath = "src/main/java/com/itideatask/util/xml/java_projects.xml";
+        String timeInvestedPath = "src/main/java/com/itideatask/util/xml/time_invested.xml";
+
+        List javaProjects=saxService.getJavaProjectsFromXml(javaProjectsPath);
+        LOGGER.info("Java projects from XML:");
+        for (Object jp : javaProjects) {
+            LOGGER.info(jp.toString());
+        }
+
+        List times = saxService.getTimeInvestedFromXml(timeInvestedPath);
+        LOGGER.info("Time invested from XML:");
+        for (Object t : times) {
+            LOGGER.info(t.toString());
+        }
+
         while (true) {
             LOGGER.info("\n=== Client Menu ===");
             LOGGER.info("1. Insert new client");
@@ -25,7 +43,8 @@ public class Main {
             LOGGER.info("3. Update client password");
             LOGGER.info("4. Delete client");
             LOGGER.info("5. Exit");
-            LOGGER.info("6. Additional options");
+            LOGGER.info("6. Additional options from projects");
+            LOGGER.info("7. Export XML from DB");
             LOGGER.info("Choose option: ");
 
             int choice = scanner.nextInt();
@@ -163,6 +182,14 @@ public class Main {
                                 LOGGER.info("Invalid option. Try again.");
                         }
                     }
+
+
+                case 7:
+                    LOGGER.info("Exporting data from database to XML...");
+                    com.itideatask.util.DbToXmlExporter exporter = new com.itideatask.util.DbToXmlExporter();
+                    exporter.exportAll();
+                    LOGGER.info(" Export complete! Files saved under src/main/resources/xml/");
+                    break;
 
                 default:
                     LOGGER.info("Invalid option. Try again.");
