@@ -50,10 +50,10 @@ public class DbToXmlExporter {
                 writer.writeCharacters(String.valueOf(rs.getDouble("java_version")));
                 writer.writeEndElement();
 
-                writer.writeEndElement(); // </project>
+                writer.writeEndElement();
             }
 
-            writer.writeEndElement(); // </java_projects>
+            writer.writeEndElement();
             writer.writeEndDocument();
             writer.flush();
             writer.close();
@@ -92,10 +92,10 @@ public class DbToXmlExporter {
                 writer.writeCharacters(String.valueOf(rs.getInt("project_code")));
                 writer.writeEndElement();
 
-                writer.writeEndElement(); // </time>
+                writer.writeEndElement();
             }
 
-            writer.writeEndElement(); // </time_invested_list>
+            writer.writeEndElement();
             writer.writeEndDocument();
             writer.flush();
             writer.close();
