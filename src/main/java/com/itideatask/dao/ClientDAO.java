@@ -1,6 +1,6 @@
 package com.itideatask.dao;
 import com.itideatask.model.Client;
-import com.itideatask.config.ConnectionPool;
+import com.itideatask.util.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

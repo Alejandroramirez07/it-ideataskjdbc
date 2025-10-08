@@ -21,8 +21,8 @@ public class Main {
 
         SaxService saxService= new SaxService();
 
-        String javaProjectsPath = "src/main/java/com/itideatask/util/xml/java_projects.xml";
-        String timeInvestedPath = "src/main/java/com/itideatask/util/xml/time_invested.xml";
+        String javaProjectsPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
+        String timeInvestedPath = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
 
         List javaProjects=saxService.getJavaProjectsFromXml(javaProjectsPath);
         LOGGER.info("Java projects from XML:");
@@ -117,29 +117,29 @@ public class Main {
                         switch (additionalchoice) {
                             case 1:
                                 LOGGER.info("Insert developer employee_code:");
-                                int insert_employee_code = scanner.nextInt();
+                                int insertEmployeeCode = scanner.nextInt();
 
                                 DeveloperService developerService = new DeveloperService();
-                                Developer developer = developerService.getDeveloper(insert_employee_code);
+                                Developer developer = developerService.getDeveloper(insertEmployeeCode);
 
                                 if (developer != null) {
                                     LOGGER.info("Developer found -> " + developer.toString());
                                 } else {
-                                    LOGGER.info("No developer found with employee_code = " + insert_employee_code);
+                                    LOGGER.info("No developer found with employee_code = " + insertEmployeeCode);
                                 }
                                 break;
 
                             case 2:
                                 LOGGER.info("Insert manager employee_code:");
-                                insert_employee_code = scanner.nextInt();
+                                insertEmployeeCode = scanner.nextInt();
 
                                 ManagerService managerService = new ManagerService();
 
-                                Manager manager = managerService.getManager(insert_employee_code);
+                                Manager manager = managerService.getManager(insertEmployeeCode);
                                 if (manager != null) {
                                     LOGGER.info("Manager found -> " + manager.toString());
                                 } else {
-                                    LOGGER.info("No manager found with employee_code = " + insert_employee_code);
+                                    LOGGER.info("No manager found with employee_code = " + insertEmployeeCode);
                                 }
                                 break;
 
@@ -161,16 +161,16 @@ public class Main {
 
                             case 4:
                                 LOGGER.info("Insert project code");
-                                int insert_project_code = scanner.nextInt();
+                                int insertTheProjectCode = scanner.nextInt();
 
                                 ProjectService projectService1 = new ProjectService();
 
-                                Project project= projectService1.getProject(insert_project_code);
+                                Project project= projectService1.getProject(insertTheProjectCode);
 
                                 if (project != null) {
                                     LOGGER.info("Project found -> " + project.toString());
                                 } else {
-                                    LOGGER.info("No project found with employee_code = " + insert_project_code);
+                                    LOGGER.info("No project found with employeecode = " + insertTheProjectCode);
                                 }
                                 break;
 

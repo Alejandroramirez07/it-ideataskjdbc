@@ -1,4 +1,4 @@
-package com.itideatask.config;
+package com.itideatask.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,7 +1,5 @@
 package com.itideatask.util;
 
-import com.itideatask.config.ConnectionPool;
-
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.FileOutputStream;
@@ -11,8 +9,8 @@ import java.sql.ResultSet;
 
 public class DbToXmlExporter {
 
-    private static final String JAVA_PROJECTS_PATH = "src/main/java/com/itideatask/util/xml/java_projects.xml";
-    private static final String TIME_INVESTED_PATH = "src/main/java/com/itideatask/util/xml/time_invested.xml";
+    private static final String JAVA_PROJECTS_PATH = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
+    private static final String TIME_INVESTED_PATH = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
 
     public void exportJavaProjects() {
         String sql = "SELECT project_code, name, client_comments, client_score_1_10, java_version FROM java_projects";

@@ -1,6 +1,6 @@
 package com.itideatask.dao;
 
-import com.itideatask.config.ConnectionPool;
+import com.itideatask.util.ConnectionPool;
 import com.itideatask.model.IncomeProject;
 
 import java.sql.Connection;
