@@ -116,7 +116,7 @@ public class Main {
 
                         switch (additionalchoice) {
                             case 1:
-                                LOGGER.info("Insert developer employee_code:");
+                                LOGGER.info("Insert developer employee code:");
                                 int insertEmployeeCode = scanner.nextInt();
 
                                 DeveloperService developerService = new DeveloperService();
@@ -125,12 +125,12 @@ public class Main {
                                 if (developer != null) {
                                     LOGGER.info("Developer found -> " + developer.toString());
                                 } else {
-                                    LOGGER.info("No developer found with employee_code = " + insertEmployeeCode);
+                                    LOGGER.info("No developer found with employee code = " + insertEmployeeCode);
                                 }
                                 break;
 
                             case 2:
-                                LOGGER.info("Insert manager employee_code:");
+                                LOGGER.info("Insert manager employee code:");
                                 insertEmployeeCode = scanner.nextInt();
 
                                 ManagerService managerService = new ManagerService();
@@ -139,23 +139,23 @@ public class Main {
                                 if (manager != null) {
                                     LOGGER.info("Manager found -> " + manager.toString());
                                 } else {
-                                    LOGGER.info("No manager found with employee_code = " + insertEmployeeCode);
+                                    LOGGER.info("No manager found with employee code = " + insertEmployeeCode);
                                 }
                                 break;
 
                             case 3:
 
                                 LOGGER.info("Insert monitoring code");
-                                int insert_monitor_code = scanner.nextInt();
+                                int  insertMonitorCode = scanner.nextInt();
 
                                 MonitoringService monitoringService = new MonitoringService();
 
-                                Monitoring monitoring = monitoringService.getMonitor(insert_monitor_code);
+                                Monitoring monitoring = monitoringService.getMonitor( insertMonitorCode);
 
                                 if (monitoring != null) {
                                     LOGGER.info("monitoring found -> " + monitoring.toString());
                                 } else {
-                                    LOGGER.info("No monitoring found with code = " + insert_monitor_code);
+                                    LOGGER.info("No monitoring found with code = " +  insertMonitorCode);
                                 }
                                 break;
 
@@ -170,7 +170,7 @@ public class Main {
                                 if (project != null) {
                                     LOGGER.info("Project found -> " + project.toString());
                                 } else {
-                                    LOGGER.info("No project found with employeecode = " + insertTheProjectCode);
+                                    LOGGER.info("No project found with employee code = " + insertTheProjectCode);
                                 }
                                 break;
 
