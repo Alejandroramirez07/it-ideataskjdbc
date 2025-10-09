@@ -1,38 +1,47 @@
 package com.itideatask.model;
 
 public class Monitoring {
-    int project_code;
-    String monitor_comments;
-    int number_incidents;
+    int projectCode;
+    String monitorComments;
+    int numberIncidents;
 
-    public Monitoring(int project_code, String monitor_comments, int number_incidents){
-        this.project_code=project_code;
-        this.monitor_comments=monitor_comments;
-        this.number_incidents=number_incidents;
+    public Monitoring(int projectCode, String monitorComments, int numberIncidents){
+        this.projectCode=projectCode;
+        this.monitorComments=monitorComments;
+        this.numberIncidents=numberIncidents;
     }
 
-    public int getProject_code(){
-        return project_code;
+    public int getProjectCode(){
+        return projectCode;
     }
 
-    public void setProject_code(int project_code) {
-        this.project_code = project_code;
+    public void setProjectCode(int projectCode) {
+        this.projectCode = projectCode;
     }
 
-    public String getMonitor_comments(){
-        return monitor_comments;
+    public String getMonitorComments(){
+        return monitorComments;
     }
 
-    public void setMonitor_comments(String monitor_comments) {
-        this.monitor_comments = monitor_comments;
+    public void setMonitorComments(String monitorComments) {
+        this.monitorComments = monitorComments;
     }
 
-    public int getNumber_incidents() {
-        return number_incidents;
+    public int getNumberIncidents() {
+        return numberIncidents;
     }
 
-    public void setNumber_incidents(int number_incidents) {
-        this.number_incidents = number_incidents;
+    public void setNumberIncidents(int numberIncidents) {
+        this.numberIncidents = numberIncidents;
+    }
+
+    @Override
+    public String toString() {
+        return "Monitoring{" +
+                "projectCode=" + projectCode +
+                ", monitorComments='" + monitorComments + '\'' +
+                ", numberIncidents=" + numberIncidents +
+                "}";
     }
 }
 

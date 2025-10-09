@@ -4,15 +4,15 @@ public class Manager {
     String username;
     String email;
     String password;
-    int project_code;
-    int employee_code;
+    int projectCode;
+    int employeeCode;
 
-    public Manager(String username, String email, String password, int project_code, int employee_code){
+    public Manager(String username, String email, String password, int projectCode, int employeeCode){
         this.username=username;
         this.email=email;
         this.password=password;
-        this.project_code=project_code;
-        this.employee_code=employee_code;
+        this.projectCode=projectCode;
+        this.employeeCode=employeeCode;
     }
 
     public String getUsername() {
@@ -39,24 +39,24 @@ public class Manager {
         this.password = password;
     }
 
-    public int getProject_code() {
-        return project_code;
+    public int getProjectCode() {
+        return projectCode;
     }
 
-    public void setProject_code(int project_code) {
-        this.project_code = project_code;
+    public void setProjectCode(int projectCode) {
+        this.projectCode = projectCode;
     }
 
-    public int getEmployee_code() {
-        return employee_code;
+    public int getEmployeeCode() {
+        return employeeCode;
     }
 
-    public void setEmployee_code(int employee_code) {
-        this.employee_code = employee_code;
+    public void setEmployeeCode(int employeeCode) {
+        this.employeeCode = employeeCode;
     }
 
     @Override
     public String toString() {
-        return " username:  " + this.username  + ", email : " + this.email + ", project code: " + this.project_code + " password is secret ";
+        return " username:  " + this.username  + ", email : " + this.email + ", project code: " + this.projectCode + " password is secret ";
     }
 }

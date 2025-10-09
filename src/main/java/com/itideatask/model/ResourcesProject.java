@@ -44,5 +44,11 @@ public class ResourcesProject {
     public void setReportCode(int reportCode) {
         this.reportCode = reportCode;
     }
+
+    @Override
+    public String toString(){
+        return " The total spending of project with code " + getProjectCode() + " is " + totalSpentUsd + " USD. And generated the following comments " + commentsSpending;
+
+    }
 }
 

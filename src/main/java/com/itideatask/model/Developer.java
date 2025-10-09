@@ -6,15 +6,15 @@ public class Developer {
     String password;
     int projectCode;
     int employeeCode;
-    int manager_employeeCode;
+    int managerEmployeeCode;
 
-    public Developer(String username, String email, String password, int projectCode, int employeeCode, int manager_employeeCode){
+    public Developer(String username, String email, String password, int projectCode, int employeeCode, int managerEmployeeCode){
         this.username=username;
         this.email=email;
         this.password=password;
         this.projectCode=projectCode;
         this.employeeCode=employeeCode;
-        this.manager_employeeCode=manager_employeeCode;
+        this.managerEmployeeCode=managerEmployeeCode;
     }
 
     public String getUsername() {
@@ -41,28 +41,28 @@ public class Developer {
         this.password = password;
     }
 
-    public int getProject_code() {
+    public int getProjectCode() {
         return projectCode;
     }
 
-    public void setProject_code(int projectCode) {
+    public void setProjectCode(int projectCode) {
         this.projectCode = projectCode;
     }
 
-    public int getEmployee_code() {
+    public int getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployee_code(int employeeCode) {
+    public void setEmployeeCode(int employeeCode) {
         this.employeeCode = employeeCode;
     }
 
-    public int getManager_employeeCode() {
-        return manager_employeeCode;
+    public int getManagerEmployeeCode() {
+        return managerEmployeeCode;
     }
 
-    public void setManager_employeeCode(int manager_employeeCode) {
-        this.manager_employeeCode = manager_employeeCode;
+    public void setManagerEmployeeCode(int manager_employeeCode) {
+        this.managerEmployeeCode = manager_employeeCode;
     }
 
     @Override

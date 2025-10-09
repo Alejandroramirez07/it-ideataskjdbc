@@ -44,4 +44,9 @@ public class IncomeProject {
     public void setReportCode(int reportCode) {
         this.reportCode = reportCode;
     }
+
+    @Override
+    public String toString () {
+        return " The total income of project with code " + reportCode + " is " + totalIncomeUsd+ " USD. And generated the following comments " + commentsIncome;
+    }
 }

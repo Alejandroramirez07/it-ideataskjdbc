@@ -1,12 +1,12 @@
 package com.itideatask.service.Impl;
 
-import com.itideatask.dao.ClientDAO;
+import com.itideatask.dao.IClientDAO;
 import com.itideatask.model.Client;
 import com.itideatask.dao.impl.ClientDAOImpl;
 import com.itideatask.service.ClientService;
 
 public class ClientServiceImpl implements ClientService {
-    private final ClientDAO clientDAO = new ClientDAOImpl();
+    private final IClientDAO clientDAO = new ClientDAOImpl();
     @Override
     public Client getClient(String email) {
         return clientDAO.findById(email);

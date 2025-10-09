@@ -1,32 +1,32 @@
 package com.itideatask.model;
 
 public class Project {
-    int project_code;
-    String project_name;
+    int  projectCode;
+    String  projectName;
 
-    public Project(int project_code, String project_name){
-        this.project_code=project_code;
-        this.project_name=project_name;
+    public Project(int  projectCode, String  projectName){
+        this. projectCode= projectCode;
+        this. projectName= projectName;
     }
 
-    public int getProject_code() {
-        return project_code;
+    public int getProjectCode() {
+        return  projectCode;
     }
 
-    public void setProject_code(int project_code) {
-        this.project_code = project_code;
+    public void setProjectCode(int  projectCode) {
+        this.projectCode =  projectCode;
     }
 
-    public String getProject_name() {
-        return project_name;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setProject_name(String project_name) {
-        this.project_name = project_name;
+    public void setProjectName(String  projectName) {
+        this.projectName =  projectName;
     }
 
     @Override
     public String toString(){
-        return "The project name is " + project_name + ". The project code is " +  project_code;
+        return "The project name is " +  projectName + ". The project code is " +   projectCode;
     }
 }

@@ -1,30 +1,42 @@
 package com.itideatask.dao.impl;
-import com.itideatask.dao.ClientDAO;
+
+import com.itideatask.dao.IClientDAO;
+import com.itideatask.dao.base.BaseDAO;
 import com.itideatask.model.Client;
-import com.itideatask.util.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ClientDAOImpl implements ClientDAO {
+public class ClientDAOImpl extends BaseDAO<Client, String> implements IClientDAO {
 
     @Override
     public Client findById(String email) {
-        String sql = " SELECT * FROM client_details WHERE email=?";
-        try (Connection connection = ConnectionPool.getConnection();
-            PreparedStatement preparedStatement =connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, email);
-            ResultSet resultSet =preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return new Client (
-                        resultSet.getString("username"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"),
-                        resultSet.getInt("project_code"));
+        String sql = "SELECT * FROM client_details WHERE email = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Client(
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getInt("project_code")
+                );
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            closeResources(rs, ps, conn);
         }
         return null;
     }
@@ -32,38 +44,45 @@ public class ClientDAOImpl implements ClientDAO {
     @Override
     public boolean insert(Client client) {
         String sql = "INSERT INTO client_details (email, username, password, project_code) VALUES (?, ?, ?, ?)";
+        Connection conn = null;
+        PreparedStatement ps = null;
 
-        try (
-                Connection connection = ConnectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)
-        ) {
-            preparedStatement.setString(1, client.getEmail());
-            preparedStatement.setString(2, client.getUsername());
-            preparedStatement.setString(3, client.getPassword());
-            preparedStatement.setInt(4, client.getProjectCode());
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, client.getEmail());
+            ps.setString(2, client.getUsername());
+            ps.setString(3, client.getPassword());
+            ps.setInt(4, client.getProjectCode());
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
+            return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            closeResources(null, ps, conn);
         }
         return false;
     }
+
     @Override
-    public boolean updatePassword(String email, String newPassword) {
-        String sql = "UPDATE client_details SET password = ? WHERE email = ?";
+    public boolean update(Client client) {
+        String sql = "UPDATE client_details SET username = ?, password = ?, project_code = ? WHERE email = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
 
-        try (
-                Connection connection = ConnectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)
-        ) {
-            preparedStatement.setString(1, newPassword);
-            preparedStatement.setString(2, email);
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, client.getUsername());
+            ps.setString(2, client.getPassword());
+            ps.setInt(3, client.getProjectCode());
+            ps.setString(4, client.getEmail());
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
+            return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            closeResources(null, ps, conn);
         }
         return false;
     }
@@ -71,20 +90,68 @@ public class ClientDAOImpl implements ClientDAO {
     @Override
     public boolean delete(String email) {
         String sql = "DELETE FROM client_details WHERE email = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
 
-        try (
-                Connection connection = ConnectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)
-        ) {
-            preparedStatement.setString(1, email);
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, email);
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
+            return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            closeResources(null, ps, conn);
         }
         return false;
     }
 
+    @Override
+    public List<Client> findAll() {
+        String sql = "SELECT * FROM client_details";
+        List<Client> clients = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                clients.add(new Client(
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getInt("project_code")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, ps, conn);
+        }
+        return clients;
+    }
+
+    public boolean updatePassword(String email, String newPassword) {
+        String sql = "UPDATE client_details SET password = ? WHERE email = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(null, ps, conn);
+        }
+        return false;
+    }
 }
