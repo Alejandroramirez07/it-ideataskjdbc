@@ -1,25 +1,14 @@
 package com.itideatask.service;
 
 import com.itideatask.model.Client;
-import com.itideatask.dao.ClientDAO;
 
-public class ClientService {
-    private final ClientDAO clientDAO = new ClientDAO();
+public interface ClientService {
 
-    public Client getClient(String email) {
-        return clientDAO.findById(email);
-    }
+    Client getClient(String email);
 
-    public boolean insertClient(Client client) {
-        return clientDAO.insert(client);
-    }
+    boolean insertClient(Client client);
 
-    public boolean updatePassword(String email, String newPassword) {
-        return clientDAO.updatePassword(email, newPassword);
-    }
+    boolean updatePassword(String email, String newPassword);
 
-    public boolean deleteClient(String email) {
-        return clientDAO.delete(email);
-    }
+    boolean deleteClient(String email);
 }
-

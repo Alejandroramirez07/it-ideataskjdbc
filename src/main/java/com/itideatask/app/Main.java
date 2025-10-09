@@ -2,6 +2,7 @@ package com.itideatask.app;
 
 import com.itideatask.model.*;
 import com.itideatask.service.*;
+import com.itideatask.service.Impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,14 +13,14 @@ public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        ClientService clientService = new ClientService();
-        ProjectService projectService = new ProjectService();
+        ClientService clientService = new ClientServiceImpl();
+        ProjectService projectService = new ProjectServiceImpl();
 
         projectService.getAllProjects();
 
         Scanner scanner = new Scanner(System.in);
 
-        SaxService saxService= new SaxService();
+        SaxServiceImpl saxService= new SaxServiceImpl();
 
         String javaProjectsPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
         String timeInvestedPath = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
@@ -119,7 +120,7 @@ public class Main {
                                 LOGGER.info("Insert developer employee code:");
                                 int insertEmployeeCode = scanner.nextInt();
 
-                                DeveloperService developerService = new DeveloperService();
+                                DeveloperService developerService = new DeveloperServiceImpl();
                                 Developer developer = developerService.getDeveloper(insertEmployeeCode);
 
                                 if (developer != null) {
@@ -133,7 +134,7 @@ public class Main {
                                 LOGGER.info("Insert manager employee code:");
                                 insertEmployeeCode = scanner.nextInt();
 
-                                ManagerService managerService = new ManagerService();
+                                ManagerService managerService = new ManagerServiceImpl();
 
                                 Manager manager = managerService.getManager(insertEmployeeCode);
                                 if (manager != null) {
@@ -148,7 +149,7 @@ public class Main {
                                 LOGGER.info("Insert monitoring code");
                                 int  insertMonitorCode = scanner.nextInt();
 
-                                MonitoringService monitoringService = new MonitoringService();
+                                MonitoringService monitoringService = new MonitoringServiceImpl();
 
                                 Monitoring monitoring = monitoringService.getMonitor( insertMonitorCode);
 
@@ -163,7 +164,7 @@ public class Main {
                                 LOGGER.info("Insert project code");
                                 int insertTheProjectCode = scanner.nextInt();
 
-                                ProjectService projectService1 = new ProjectService();
+                                ProjectService projectService1 = new ProjectServiceImpl();
 
                                 Project project= projectService1.getProject(insertTheProjectCode);
 
