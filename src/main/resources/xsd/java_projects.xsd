@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="java_projects">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="java_project" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="project_code" type="xs:int"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="client_comments" type="xs:string"/>
+                            <xs:element name="client_score_1_10" type="xs:int"/>
+                            <xs:element name="java_version" type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

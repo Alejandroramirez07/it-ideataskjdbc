@@ -18,18 +18,25 @@ public class Main {
 
         projectService.getAllProjects();
 
+        JaxbService jaxbService = new JaxbService();
+        String xmlPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
+        String xsdPath = "src/main/resources/xsd/java_projects.xsd";
+
+        JavaProjects javaProjects = jaxbService.getJavaProjectsFromXml(xmlPath, xsdPath);
+
+        jaxbService.exportJavaProjectsToXml(javaProjects);
+
+        if (javaProjects != null) {
+            for (var project : javaProjects.getProjects()) {
+                LOGGER.info(project.toString());
+            }
+        }
+
         Scanner scanner = new Scanner(System.in);
 
         SaxServiceImpl saxService= new SaxServiceImpl();
 
-        String javaProjectsPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
         String timeInvestedPath = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
-
-        List javaProjects=saxService.getJavaProjectsFromXml(javaProjectsPath);
-        LOGGER.info("Java projects from XML:");
-        for (Object jp : javaProjects) {
-            LOGGER.info(jp.toString());
-        }
 
         List times = saxService.getTimeInvestedFromXml(timeInvestedPath);
         LOGGER.info("Time invested from XML:");

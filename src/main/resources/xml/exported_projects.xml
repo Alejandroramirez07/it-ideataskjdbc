@@ -1,17 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <java_projects>
     <java_project>
         <project_code>101</project_code>
         <name>Billing API</name>
         <client_comments>Very stable</client_comments>
         <client_score_1_10>9</client_score_1_10>
-        <java_version>11.00</java_version>
+        <java_version>11.0</java_version>
     </java_project>
-
     <java_project>
         <project_code>103</project_code>
         <name>Cloud Migration</name>
         <client_comments>Excellent scalability</client_comments>
         <client_score_1_10>9</client_score_1_10>
-        <java_version>17.00</java_version>
+        <java_version>17.0</java_version>
     </java_project>
 </java_projects>

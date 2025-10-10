@@ -1,64 +1,20 @@
 package com.itideatask.model;
 
+import jakarta.xml.bind.annotation.*;
+
+import java.util.List;
+
+@XmlRootElement(name="java_projects")
 public class JavaProjects {
-    private int projectCode;
-    private String name;
-    private String clientComments;
-    private int clientScore;
-    private double javaVersion;
 
-    public JavaProjects() {}
+    private List<JavaProject> projects;
 
-
-    public int getProjectCode() {
-        return projectCode;
-
-    }
-    public void setProjectCode(int projectCode) {
-        this.projectCode = projectCode;
+    @XmlElement(name= "java_project")
+    public List<JavaProject> getProjects(){
+        return projects;
     }
 
-    public String getName() {
-        return name;
+    public void setProjects(List<JavaProject> projects) {
+        this.projects = projects;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getClientComments() {
-        return clientComments;
-    }
-
-    public void setClientComments(String clientComments) {
-        this.clientComments = clientComments;
-    }
-
-    public int getClientScore() {
-        return clientScore;
-    }
-
-    public void setClientScore(int clientScore) {
-        this.clientScore = clientScore;
-    }
-
-    public double getJavaVersion() {
-        return javaVersion;
-    }
-
-    public void setJavaVersion(double javaVersion) {
-        this.javaVersion = javaVersion;
-    }
-
-    @Override
-    public String toString() {
-        return "JavaProject{" +
-                "projectCode=" + projectCode +
-                ", name='" + name +
-                ", clientComments='" + clientComments +
-                ", clientScore=" + clientScore +
-                ", javaVersion=" + javaVersion +
-                '}';
-    }
-
 }

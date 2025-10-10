@@ -1,9 +1,8 @@
 package com.itideatask.util;
 
-import com.itideatask.model.JavaProjects;
+import com.itideatask.model.JavaProject;
 import com.itideatask.model.TimeInvested;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.SAXParser;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class SaxParserUtil {
 
-    public List<JavaProjects> parseJavaProjects(String filePath) {
+    public List<JavaProject> parseJavaProjects(String filePath) {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
@@ -41,17 +40,17 @@ public class SaxParserUtil {
     }
 
     private static class JavaProjectsHandler extends DefaultHandler {
-        private final List<JavaProjects> projects = new ArrayList<>();
-        private JavaProjects current;
+        private final List<JavaProject> projects = new ArrayList<>();
+        private JavaProject current;
         private StringBuilder content = new StringBuilder();
 
-        public List<JavaProjects> getProjects() { return projects; }
+        public List<JavaProject> getProjects() { return projects; }
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) {
             content.setLength(0);
             if ("project".equalsIgnoreCase(qName)) {
-                current = new JavaProjects();
+                current = new JavaProject();
             }
         }
 
