@@ -14,4 +14,12 @@ public class JsonCloudService {
     public List<AzureCloud> getAzureClouds(String path) {
         return JsonUtil.readListFromJson(path, AzureCloud.class);
     }
+
+    public void exportAzureClouds(String jsonPath, List<AzureCloud> clouds) {
+        JsonUtil.writeListToJson(jsonPath, clouds);
+    }
+
+    public void exportAwsClouds(String jsonPath, List<AwsCloud> clouds) {
+        JsonUtil.writeListToJson(jsonPath, clouds);
+    }
 }

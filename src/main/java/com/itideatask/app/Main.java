@@ -3,6 +3,7 @@ package com.itideatask.app;
 import com.itideatask.model.*;
 import com.itideatask.service.*;
 import com.itideatask.service.Impl.*;
+import com.itideatask.util.JsonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,11 +24,26 @@ public class Main {
         String awsPath = "src/main/java/com/itideatask/util/json/aws_cloud.json";
         String azurePath = "src/main/java/com/itideatask/util/json/azure_cloud.json";
 
-        LOGGER.info("=== AWS Cloud Data from JSON ===");
+     ;   LOGGER.info("=== AWS Cloud Data from JSON ===");
         jsonCloudService.getAwsClouds(awsPath).forEach(a -> LOGGER.info(a.toString()));
 
         LOGGER.info("=== Azure Cloud Data from JSON ===");
         jsonCloudService.getAzureClouds(azurePath).forEach(a -> LOGGER.info(a.toString()));
+
+        String jsonPath = "src/main/java/com/itideatask/util/json/azure_cloud.json";
+        JsonCloudService jsonService = new JsonCloudService();
+
+        List<AzureCloud> azureClouds = jsonService.getAzureClouds(jsonPath);
+
+        LOGGER.info("=== Azure Cloud Data from JSON ===");
+        if (azureClouds != null) {
+            azureClouds.forEach(c -> LOGGER.info(c.toString()));
+        }
+
+        AzureCloud newCloud = new AzureCloud(110, 8);
+        azureClouds.add(newCloud);
+
+        jsonService.exportAzureClouds("src/main/java/com/itideatask/util/json/azure_clouds_exported.json", azureClouds);
 
         JaxbService jaxbService = new JaxbService();
         String xmlPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";

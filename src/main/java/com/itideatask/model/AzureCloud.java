@@ -1,5 +1,8 @@
 package com.itideatask.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AzureCloud {
     private int projectCode;
     private int numberOfRegions;
@@ -34,4 +37,5 @@ public class AzureCloud {
                 ", numberOfRegion=" + numberOfRegions +
                 '}';
     }
+
 }
