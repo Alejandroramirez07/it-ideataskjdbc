@@ -18,6 +18,17 @@ public class Main {
 
         projectService.getAllProjects();
 
+        JsonCloudService jsonCloudService = new JsonCloudService();
+
+        String awsPath = "src/main/java/com/itideatask/util/json/aws_cloud.json";
+        String azurePath = "src/main/java/com/itideatask/util/json/azure_cloud.json";
+
+        LOGGER.info("=== AWS Cloud Data from JSON ===");
+        jsonCloudService.getAwsClouds(awsPath).forEach(a -> LOGGER.info(a.toString()));
+
+        LOGGER.info("=== Azure Cloud Data from JSON ===");
+        jsonCloudService.getAzureClouds(azurePath).forEach(a -> LOGGER.info(a.toString()));
+
         JaxbService jaxbService = new JaxbService();
         String xmlPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
         String xsdPath = "src/main/resources/xsd/java_projects.xsd";
