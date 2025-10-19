@@ -1,10 +1,14 @@
 package com.itideatask.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AzureCloud {
+    @JsonProperty("project_code")
     private int projectCode;
+
+    @JsonProperty("number_of_regions")
     private int numberOfRegions;
 
     public AzureCloud() {}

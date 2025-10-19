@@ -1,7 +1,14 @@
 package com.itideatask.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AwsCloud {
+    @JsonProperty("project_code")
     private int projectCode;
+
+    @JsonProperty("number_of_regions")
     private int numberOfRegions;
 
     public AwsCloud() {}
