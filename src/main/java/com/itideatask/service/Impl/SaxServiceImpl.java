@@ -9,10 +9,12 @@ import java.util.List;
 
 public class SaxServiceImpl implements SaxService {
     private final SaxParserUtil parserUtil = new SaxParserUtil();
+
     @Override
     public List<JavaProject> getJavaProjectsFromXml(String filePath) {
         return parserUtil.parseJavaProjects(filePath);
     }
+
     @Override
     public List<TimeInvested> getTimeInvestedFromXml(String filePath) {
         return parserUtil.parseTimeInvested(filePath);

@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class IncomeProject {
+
     float totalIncomeUsd;
     String commentsIncome;
     int projectCode;

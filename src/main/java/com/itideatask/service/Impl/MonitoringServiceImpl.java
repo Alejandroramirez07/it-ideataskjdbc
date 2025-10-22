@@ -7,6 +7,7 @@ import com.itideatask.model.Monitoring;
 import com.itideatask.service.MonitoringService;
 
 public class MonitoringServiceImpl implements MonitoringService {
+
     IMonitoringDAO monitoringDAO = new MonitoringDAOImpl();
 
     @Override

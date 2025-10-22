@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class ResourcesProject {
+
     float totalSpentUsd;
     String commentsSpending;
     int projectCode;

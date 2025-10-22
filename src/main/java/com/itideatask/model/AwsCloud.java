@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AwsCloud {
+
     @JsonProperty("project_code")
     private int projectCode;
 

@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class Manager {
+
     String username;
     String email;
     String password;

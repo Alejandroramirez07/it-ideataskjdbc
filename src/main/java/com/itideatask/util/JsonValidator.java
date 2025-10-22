@@ -8,7 +8,9 @@ import org.json.JSONTokener;
 import java.io.FileInputStream;
 
 public class JsonValidator {
+
     public static boolean validate(String jsonFile, String schemaFile) {
+
         try (FileInputStream jsonStream = new FileInputStream(jsonFile);
              FileInputStream schemaStream = new FileInputStream(schemaFile)) {
 
@@ -19,6 +21,7 @@ public class JsonValidator {
             schema.validate(jsonData);
             System.out.println(" JSON is valid!");
             return true;
+
         } catch (Exception e) {
             System.err.println(" JSON invalid: " + e.getMessage());
             return false;

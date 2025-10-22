@@ -11,8 +11,11 @@ import javax.xml.validation.Validator;
 import java.io.File;
 
 public class XmlValidator {
+
     private static final Logger LOGGER = LogManager.getLogger(XmlValidator.class);
+
     public static boolean validateXmlAgainstXsd(String xmlPath, String xsdPath){
+
         try {
             SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = schemaFactory.newSchema(new File(xsdPath));
@@ -20,6 +23,7 @@ public class XmlValidator {
             validator.validate(new StreamSource(new File(xmlPath)));
             LOGGER.info("XML is valid");
             return true;
+
         } catch (Exception e) {
             LOGGER.error("XML invalid " + e.getMessage());
             return false;

@@ -14,12 +14,14 @@ import java.util.List;
 public class SaxParserUtil {
 
     public List<JavaProject> parseJavaProjects(String filePath) {
+
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
             JavaProjectsHandler handler = new JavaProjectsHandler();
             parser.parse(new File(filePath), handler);
             return handler.getProjects();
+
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();

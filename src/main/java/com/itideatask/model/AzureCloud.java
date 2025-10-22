@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AzureCloud {
+
     @JsonProperty("project_code")
     private int projectCode;
 

@@ -19,10 +19,15 @@ public class Main {
 
         projectService.getAllProjects();
 
+        CloudConfigService cloudConfigService = new CloudConfigService();
+
+        cloudConfigService.validateAwsConfig();
+        cloudConfigService.validateAzureConfig();
+
         JsonCloudService jsonCloudService = new JsonCloudService();
 
-        String awsPath = "src/main/java/com/itideatask/util/json/aws_cloud.json";
-        String azurePath = "src/main/java/com/itideatask/util/json/azure_cloud.json";
+        String awsPath = "src/main/resources/json/aws_cloud.json";
+        String azurePath = "src/main/resources/json/azure_cloud.json";
 
      ;   LOGGER.info("=== AWS Cloud Data from JSON ===");
         jsonCloudService.getAwsClouds(awsPath).forEach(a -> LOGGER.info(a.toString()));
@@ -30,7 +35,7 @@ public class Main {
         LOGGER.info("=== Azure Cloud Data from JSON ===");
         jsonCloudService.getAzureClouds(azurePath).forEach(a -> LOGGER.info(a.toString()));
 
-        String jsonPath = "src/main/java/com/itideatask/util/json/azure_cloud.json";
+        String jsonPath = "src/main/resources/json/azure_cloud.json";
         JsonCloudService jsonService = new JsonCloudService();
 
         List<AzureCloud> azureClouds = jsonService.getAzureClouds(jsonPath);
@@ -43,10 +48,10 @@ public class Main {
         AzureCloud newCloud = new AzureCloud(110, 8);
         azureClouds.add(newCloud);
 
-        jsonService.exportAzureClouds("src/main/java/com/itideatask/util/json/azure_clouds_exported.json", azureClouds);
+        jsonService.exportAzureClouds("src/main/resources/json/azure_clouds_exported.json", azureClouds);
 
         JaxbService jaxbService = new JaxbService();
-        String xmlPath = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
+        String xmlPath = "src/main/resources/xml/javaProjects.xml";
         String xsdPath = "src/main/resources/xsd/java_projects.xsd";
 
         JavaProjects javaProjects = jaxbService.getJavaProjectsFromXml(xmlPath, xsdPath);
@@ -63,7 +68,7 @@ public class Main {
 
         SaxServiceImpl saxService= new SaxServiceImpl();
 
-        String timeInvestedPath = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
+        String timeInvestedPath = "src/main/resources/xml/timeInvested.xml";
 
         List times = saxService.getTimeInvestedFromXml(timeInvestedPath);
         LOGGER.info("Time invested from XML:");

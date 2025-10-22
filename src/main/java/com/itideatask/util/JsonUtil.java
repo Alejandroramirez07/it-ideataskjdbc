@@ -8,6 +8,7 @@ import java.io.File;
 import java.util.List;
 
 public class JsonUtil {
+
     private static final Logger LOGGER = LogManager.getLogger(JsonUtil.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
 

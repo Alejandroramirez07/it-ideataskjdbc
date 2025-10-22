@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class Monitoring {
+
     int projectCode;
     String monitorComments;
     int numberIncidents;

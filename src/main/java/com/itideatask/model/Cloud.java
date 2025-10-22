@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class Cloud {
+
     private int gcpProjectCode;
     private int awsProjectCode;
     private int azureProjectCode;

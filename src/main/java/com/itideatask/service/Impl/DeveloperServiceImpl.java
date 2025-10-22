@@ -6,7 +6,9 @@ import com.itideatask.model.Developer;
 import com.itideatask.service.DeveloperService;
 
 public class DeveloperServiceImpl implements DeveloperService {
+
     private IDeveloperDAO developerDAO = new DeveloperDAOImpl();
+
     @Override
     public Developer getDeveloper(int employee_code){
         return developerDAO.findById(employee_code);

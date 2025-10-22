@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class Developer {
+
     String username;
     String email;
     String password;

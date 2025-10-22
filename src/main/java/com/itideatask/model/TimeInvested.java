@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class TimeInvested {
+
     private String startTime;
     private String finishTime;
     private int projectCode;

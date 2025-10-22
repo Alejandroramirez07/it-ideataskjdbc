@@ -1,6 +1,7 @@
 package com.itideatask.model;
 
 public class Project {
+
     int  projectCode;
     String  projectName;
 
