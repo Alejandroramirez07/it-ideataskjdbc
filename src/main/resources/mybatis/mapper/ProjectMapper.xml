@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itideatask.mybatis.ProjectMapper">
+
+    <!-- Map database columns to your Java field names -->
+    <resultMap id="ProjectResultMap" type="com.itideatask.model.Project">
+        <id property="projectCode" column="project_code"/>
+        <result property="projectName" column="name"/>
+    </resultMap>
+
+    <!-- FIND by ID -->
+    <select id="findById" parameterType="int" resultMap="ProjectResultMap">
+        SELECT project_code, name
+        FROM projects
+        WHERE project_code = #{projectCode}
+    </select>
+
+    <!-- INSERT new Project -->
+    <insert id="insert" parameterType="com.itideatask.model.Project">
+        INSERT INTO projects (project_code, name)
+        VALUES (#{projectCode}, #{projectName})
+    </insert>
+
+    <!-- UPDATE -->
+    <update id="updateName" parameterType="com.itideatask.model.Project">
+        UPDATE projects
+        SET name = #{projectName}
+        WHERE project_code = #{projectCode}
+    </update>
+
+    <!-- DELETE -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM projects
+        WHERE project_code = #{projectCode}
+    </delete>
+
+    <!-- FIND ALL -->
+    <select id="findAll" resultMap="ProjectResultMap">
+        SELECT project_code, name
+        FROM projects
+    </select>
+
+</mapper>

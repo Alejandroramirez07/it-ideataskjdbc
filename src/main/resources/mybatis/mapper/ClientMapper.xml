@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itideatask.mybatis.ClientMapper">
+
+    <select id="findById" parameterType="string" resultType="com.itideatask.model.Client">
+        SELECT email, username, password, project_code
+        FROM client_details
+        WHERE email = #{email}
+    </select>
+
+    <insert id="insert" parameterType="com.itideatask.model.Client">
+        INSERT INTO client_details (email, username, password, project_code)
+        VALUES (#{email}, #{username}, #{password}, #{projectCode})
+    </insert>
+
+    <update id="updatePassword" parameterType="map">
+        UPDATE client_details SET password = #{password}
+        WHERE email = #{email}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        DELETE FROM client_details WHERE email = #{email}
+    </delete>
+</mapper>

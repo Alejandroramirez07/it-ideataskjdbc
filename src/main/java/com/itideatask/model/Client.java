@@ -6,6 +6,8 @@ public class Client {
     private String password;
     private int projectCode;
 
+    public Client() {}
+
     public Client(String username, String email, String password, int projectCode) {
         this.username = username;
         this.email = email;

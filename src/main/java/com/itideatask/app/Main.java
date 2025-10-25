@@ -3,7 +3,6 @@ package com.itideatask.app;
 import com.itideatask.model.*;
 import com.itideatask.service.*;
 import com.itideatask.service.Impl.*;
-import com.itideatask.util.JsonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +28,7 @@ public class Main {
         String awsPath = "src/main/resources/json/aws_cloud.json";
         String azurePath = "src/main/resources/json/azure_cloud.json";
 
-     ;   LOGGER.info("=== AWS Cloud Data from JSON ===");
+        LOGGER.info("=== AWS Cloud Data from JSON ===");
         jsonCloudService.getAwsClouds(awsPath).forEach(a -> LOGGER.info(a.toString()));
 
         LOGGER.info("=== Azure Cloud Data from JSON ===");
@@ -65,6 +64,31 @@ public class Main {
         }
 
         Scanner scanner = new Scanner(System.in);
+
+        String clientEmailToGet=null;
+        LOGGER.info("Please, write the e mail of the cliente you want to search");
+        clientEmailToGet=scanner.nextLine();
+
+        ClientService clientService2 = new ClientServiceMyBatisImpl();
+        Client client2 = clientService2.getClient(clientEmailToGet);
+        if (client2 != null) {
+            LOGGER.info("Client found: " + client2.toString());
+        } else {
+            LOGGER.warn(" No client found with email: " + clientEmailToGet);
+        }
+
+        int projectCodeToGet= 0;
+        LOGGER.info("Please, write the project_code");
+        projectCodeToGet=scanner.nextInt();
+
+        ProjectService projectService2 = new ProjectServiceMyBatisImpl();
+        Project project2 = projectService2.getProject(projectCodeToGet);
+        if (project2 != null) {
+            LOGGER.info("Client found: " + project2.toString());
+        } else {
+            LOGGER.warn("No project found with project code " + projectCodeToGet);
+        }
+        projectService2.getAllProjects();
 
         SaxServiceImpl saxService= new SaxServiceImpl();
 

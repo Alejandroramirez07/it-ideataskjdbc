@@ -2,16 +2,18 @@ package com.itideatask.model;
 
 public class Project {
 
-    int  projectCode;
-    String  projectName;
+    int projectCode;
+    String projectName;
+
+    public Project() {}
 
     public Project(int  projectCode, String  projectName){
-        this. projectCode= projectCode;
-        this. projectName= projectName;
+        this.projectCode= projectCode;
+        this.projectName= projectName;
     }
 
     public int getProjectCode() {
-        return  projectCode;
+        return projectCode;
     }
 
     public void setProjectCode(int  projectCode) {
@@ -28,6 +30,6 @@ public class Project {
 
     @Override
     public String toString(){
-        return "The project name is " +  projectName + ". The project code is " +   projectCode;
+        return "The project name is " + projectName + ". The project code is " + projectCode;
     }
 }
