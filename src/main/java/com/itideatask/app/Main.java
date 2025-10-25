@@ -84,7 +84,7 @@ public class Main {
         ProjectService projectService2 = new ProjectServiceMyBatisImpl();
         Project project2 = projectService2.getProject(projectCodeToGet);
         if (project2 != null) {
-            LOGGER.info("Client found: " + project2.toString());
+            LOGGER.info("Project found: " + project2.toString());
         } else {
             LOGGER.warn("No project found with project code " + projectCodeToGet);
         }
