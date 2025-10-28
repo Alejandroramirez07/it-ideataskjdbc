@@ -77,7 +77,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String clientEmailToGet=null;
-        LOGGER.info("Please, write the e mail of the cliente you want to search");
+        LOGGER.info("Please, write the e mail of the client you want to search");
         clientEmailToGet=scanner.nextLine();
 
         ClientService defaultService = ServiceFactory.getClientService("default");
