@@ -69,10 +69,18 @@ public class Main {
         LOGGER.info("Please, write the e mail of the cliente you want to search");
         clientEmailToGet=scanner.nextLine();
 
-        ClientService clientService2 = new ClientServiceMyBatisImpl();
-        Client client2 = clientService2.getClient(clientEmailToGet);
+        ClientService defaultService = ServiceFactory.getClientService("default");
+        Client client3 = defaultService.getClient(clientEmailToGet);
+        if (client3 != null) {
+            LOGGER.info("Client found: " + client3);
+        } else {
+            LOGGER.warn(" No client found with email: " + clientEmailToGet);
+        }
+
+        ClientService batisService = ServiceFactory.getClientService("mybatis");
+        Client client2 = batisService.getClient(clientEmailToGet);
         if (client2 != null) {
-            LOGGER.info("Client found: " + client2.toString());
+            LOGGER.info("Client found: " + client2);
         } else {
             LOGGER.warn(" No client found with email: " + clientEmailToGet);
         }
