@@ -3,6 +3,10 @@ package com.itideatask.app;
 import com.itideatask.model.*;
 import com.itideatask.service.*;
 import com.itideatask.service.Impl.*;
+import com.itideatask.util.DbToXmlExporter;
+import com.itideatask.util.ExportStrategy;
+import com.itideatask.util.JsonUtil;
+import com.itideatask.util.ProjectDataFacade;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,9 +51,16 @@ public class Main {
         AzureCloud newCloud = new AzureCloud(110, 8);
         azureClouds.add(newCloud);
 
+        ExportStrategy strategyJson = new JsonUtil();
+        strategyJson.export();
+
         jsonService.exportAzureClouds("src/main/resources/json/azure_clouds_exported.json", azureClouds);
 
         JaxbService jaxbService = new JaxbService();
+
+        ExportStrategy strategyXml = new DbToXmlExporter();
+        strategyXml.export();
+
         String xmlPath = "src/main/resources/xml/javaProjects.xml";
         String xsdPath = "src/main/resources/xsd/java_projects.xsd";
 
@@ -88,6 +99,9 @@ public class Main {
         int projectCodeToGet= 0;
         LOGGER.info("Please, write the project_code");
         projectCodeToGet=scanner.nextInt();
+
+        new ProjectDataFacade().showProjectOverview(projectCodeToGet);
+
 
         ProjectService projectService2 = new ProjectServiceMyBatisImpl();
         Project project2 = projectService2.getProject(projectCodeToGet);

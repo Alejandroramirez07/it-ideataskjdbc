@@ -1,5 +1,8 @@
 package com.itideatask.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.FileOutputStream;
@@ -7,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class DbToXmlExporter {
+public class DbToXmlExporter implements ExportStrategy{
+
+    private static final Logger LOGGER = (Logger) LogManager.getLogger(DbToXmlExporter.class);
 
     private static final String JAVA_PROJECTS_PATH = "src/main/java/com/itideatask/util/xml/javaProjects.xml";
     private static final String TIME_INVESTED_PATH = "src/main/java/com/itideatask/util/xml/timeInvested.xml";
@@ -107,6 +112,11 @@ public class DbToXmlExporter {
     public void exportAll() {
         exportJavaProjects();
         exportTimeInvested();
+    }
+
+    @Override
+    public void export() {
+        LOGGER.info("Exporting data to XML");
     }
 
 }

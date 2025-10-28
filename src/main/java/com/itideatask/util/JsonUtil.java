@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.util.List;
 
-public class JsonUtil {
+public class JsonUtil implements ExportStrategy{
 
     private static final Logger LOGGER = LogManager.getLogger(JsonUtil.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -29,5 +29,10 @@ public class JsonUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void export() {
+        LOGGER.info("Exporting data to Json");
     }
 }
