@@ -1,6 +1,9 @@
 package com.itideatask.app;
 
 import com.itideatask.model.*;
+import com.itideatask.model.strategy.FixedCostStrategy;
+import com.itideatask.model.strategy.HourlyCostStrategy;
+import com.itideatask.model.strategy.TimeBasedCostStrategy;
 import com.itideatask.service.*;
 import com.itideatask.service.Impl.*;
 import com.itideatask.util.DbToXmlExporter;
@@ -111,6 +114,15 @@ public class Main {
             LOGGER.warn("No project found with project code " + projectCodeToGet);
         }
         projectService2.getAllProjects();
+
+        CostEstimator estimator = new CostEstimator(new HourlyCostStrategy());
+        estimator.estimate(project2, 50); // $50/hour
+
+        estimator.setStrategy(new FixedCostStrategy());
+        estimator.estimate(project2, 5000); // fixed $5000
+
+        estimator.setStrategy(new TimeBasedCostStrategy());
+        estimator.estimate(project2, 60);
 
         SaxServiceImpl saxService= new SaxServiceImpl();
 

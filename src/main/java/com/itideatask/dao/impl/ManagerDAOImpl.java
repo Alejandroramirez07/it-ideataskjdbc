@@ -14,6 +14,7 @@ public class ManagerDAOImpl extends BaseDAO<Manager, Integer> implements IManage
 
     @Override
     public Manager findById(Integer employeeCode) {
+
         String sql = "SELECT * FROM project_managers WHERE employee_code = ?";
         Connection conn = null;
         PreparedStatement ps = null;

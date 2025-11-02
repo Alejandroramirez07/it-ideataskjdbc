@@ -5,6 +5,7 @@ import jakarta.xml.bind.annotation.*;
 @XmlRootElement(name = "java_project")
 @XmlType(propOrder = {"projectCode", "name", "clientComments", "clientScore", "javaVersion"})
 public class JavaProject {
+
     private int projectCode;
     private String name;
     private String clientComments;

@@ -14,6 +14,7 @@ public class ProjectDAOImpl extends BaseDAO<Project, Integer> implements IProjec
 
     @Override
     public Project findById(Integer projectCode) {
+
         String sql = "SELECT * FROM projects WHERE project_code = ?";
         Connection conn = null;
         PreparedStatement ps = null;
