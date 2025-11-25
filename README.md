@@ -109,6 +109,11 @@ Tasks Table
 
 Recommended: mvn clean verify to get your test in target/site about test coverage
 
+mvn "-Dsurefire.suiteXmlFiles=src/test/resources/suite-all.xml" test
+mvn "-Dsurefire.suiteXmlFiles=src/test/resources/suite-manager.xml" test
+mvn "-Dsurefire.suiteXmlFiles=src/test/resources/suite-developer.xml" test
+
+
 License
 
 This project is open source and available under the MIT License.

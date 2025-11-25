@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Developer Suite">
+
+    <test name="Developer Tests">
+        <classes>
+            <class name="com.itideatask.model.DeveloperTest"/>
+        </classes>
+    </test>
+</suite>
