@@ -107,6 +107,8 @@ Tasks Table
 
     user_id (INT, Foreign Key)
 
+Recommended: mvn clean verify to get your test in target/site about test coverage
+
 License
 
 This project is open source and available under the MIT License.
